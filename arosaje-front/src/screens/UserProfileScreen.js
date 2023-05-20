@@ -3,11 +3,15 @@ import { View } from 'react-native';
 import UserProfile from '../components/UserProfile';
 
 const UserProfileScreen = () => {
-  return (
-    <View>
-      <UserProfile />
-    </View>
-  );
+  if(AsyncStorage.getItem('token')){
+    return (
+      <View>
+        <UserProfile />
+      </View>
+    );
+  }
+
+  navigation.navigate('Login');
 };
 
 export default UserProfileScreen;

@@ -1,13 +1,25 @@
 import React from 'react';
 import { View } from 'react-native';
 import Login from '../components/Login';
+import { login } from '../services/authenticationService';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const LoginScreen = ({ navigation }) => {
-  const handleLogin = (username, password) => {
-    // Handle login authentication (mock implementation)
-    console.log('Logging in', username, password);
+  const handleLogin = (email, password) => {
+  
     // Navigate to the home page after successful login
-    navigation.navigate('Home');
+    login(email, password).then((res) => {
+      if(res.ok) {
+        res.json().then((body) => {
+          console.log(body.token);
+          AsyncStorage.setItem('token', body.token);
+          navigation.navigate('Home');
+        });
+      }
+      else{
+        alert('Login failed');
+      }
+    });
   };
 
   const handleSignup = () => {

@@ -1,13 +1,19 @@
 import React from 'react';
 import { View } from 'react-native';
 import Signup from '../components/Signup';
+import { signup } from '../services/authenticationService';
 
 const SignupScreen = ({ navigation }) => {
-  const handleSignup = (username, password) => {
-    // Handle signup logic (mock implementation)
-    console.log('Signing up', username, password);
+  const handleSignup = (email, password) => {
+
     // Navigate to the home page after successful signup
-    navigation.navigate('Home');
+    login(email, password).then((res) => {
+      if(res.ok) {
+        res.json().then((body) => {
+          navigation.navigate('Login');
+        });
+      }
+    });
   };
 
   return (

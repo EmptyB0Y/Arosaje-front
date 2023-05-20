@@ -2,10 +2,10 @@ import React from 'react';
 import { View, TextInput, Button } from 'react-native';
 
 const Signup = ({ handleSignup }) => {
-  const [username, setUsername] = React.useState('');
+  const [email, setUsername] = React.useState('');
   const [password, setPassword] = React.useState('');
 
-  const handleUsernameChange = (text) => {
+  const handleEmailChange = (text) => {
     setUsername(text);
   };
 
@@ -16,9 +16,9 @@ const Signup = ({ handleSignup }) => {
   return (
     <View>
       <TextInput
-        placeholder="Username"
-        value={username}
-        onChangeText={handleUsernameChange}
+        placeholder="Email"
+        value={email}
+        onChangeText={handleEmailChange}
       />
       <TextInput
         placeholder="Password"
@@ -26,7 +26,7 @@ const Signup = ({ handleSignup }) => {
         value={password}
         onChangeText={handlePasswordChange}
       />
-      <Button title="Signup" onPress={() => handleSignup(username, password)} />
+      <Button title="Signup" onPress={() => handleSignup(email, password)} />
     </View>
   );
 };
