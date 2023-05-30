@@ -26,7 +26,7 @@ const Signup = ({ handleSignup }) => {
         value={password}
         onChangeText={handlePasswordChange}
       />
-      <Button title="Signup" onPress={() => handleSignup(email, password)} />
+      <Button color='#4c9950' title="Signup" onPress={() => handleSignup(email, password)} />
     </View>
   );
 };

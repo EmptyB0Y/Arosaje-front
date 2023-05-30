@@ -5,7 +5,7 @@ const HomePage = ({ navigation }) => {
   return (
     <View>
       <Text>Home Page</Text>
-      <Button title="Go to Profile" onPress={() => navigation.navigate('UserProfile')} />
+      <Button color='#4c9950' title="Go to Profile" onPress={() => navigation.navigate('UserProfile')} />
     </View>
   );
 };

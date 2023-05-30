@@ -6,8 +6,8 @@ import { signup } from '../services/authenticationService';
 const SignupScreen = ({ navigation }) => {
   const handleSignup = (email, password) => {
 
-    // Navigate to the home page after successful signup
-    login(email, password).then((res) => {
+    // Navigate to the login page after successful signup
+    signup(email, password).then((res) => {
       if(res.ok) {
         res.json().then((body) => {
           navigation.navigate('Login');

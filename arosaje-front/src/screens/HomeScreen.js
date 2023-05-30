@@ -13,7 +13,7 @@ const HomeScreen = ({ navigation }) => {
     );
   }
 
-  navigation.navigate('Login');
+  navigation.navigate('Login'); 
 };
 
 export default HomeScreen;
